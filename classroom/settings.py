@@ -38,6 +38,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'user.User'
 
 # Application definition
 
@@ -48,9 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Project apps
     'course.apps.CourseConfig',
     'user.apps.UserConfig',
     'homework.apps.HomeworkConfig',
+    # Libraries imports
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -117,7 +121,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'user.User'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'user.jwt.JWTAuthentication',
+    ]
+}
 
 
 # Internationalization
