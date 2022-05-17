@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'homework.apps.HomeworkConfig',
     # Libraries imports
     'rest_framework',
-    'drf-yasg'
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [

@@ -41,13 +41,13 @@ urlpatterns = [
     path('course/', include('apps.course.urls')),
     # API swager documentation URL's
     path(
-        'swager.json', 
-        schema_view.with_ui('swager', cache_timeout= 0), 
+        'swagger.json', 
+        schema_view.with_ui('swagger', cache_timeout= 0), 
         name= 'schema-json'
     ),
     path(
-        'swager/', 
-        schema_view.with_ui('swager', cache_timeout= 0), 
+        'swagger/', 
+        schema_view.with_ui('swagger', cache_timeout= 0), 
         name= 'schema-swager-ui'
     ),
     path(
