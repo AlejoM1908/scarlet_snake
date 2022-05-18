@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from homework.models import Homework, Submition
 from homework.serializers import HomeworkSerializer, SubmitionSerializer
 from rest_framework import status, permissions
+from helpers.upload import Upload
 
 
 class HomeworkAPIView(GenericAPIView):
@@ -18,7 +19,7 @@ class HomeworkAPIView(GenericAPIView):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
-            serializer.save(us_id = self.request.user)
+            serializer.save(us_id= self.request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -62,6 +63,8 @@ class SubmitionAPIView(GenericAPIView):
         return submitions
 
     def post(self,request):
+        data_url = Upload.upload_file(request.data['data'], request.data['data'].name)
+        request.data['data'] = data_url
         serializer = self.serializer_class(data=request.data)
         
         if serializer.is_valid():

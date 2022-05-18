@@ -18,7 +18,7 @@ class Submition(models.Model):
     hw_id = models.ForeignKey(Homework, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     score = models.IntegerField(default=0)
-    data = models.CharField(max_length=200)
+    data = models.TextField(max_length=1500,unique= True)
 
     def __str__(self) -> str:
         return f'submit date: {self.created_at}'

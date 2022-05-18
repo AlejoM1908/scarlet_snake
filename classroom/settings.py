@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from google.oauth2 import service_account
 from pathlib import Path
 import environ
+import json
 import sys
 import os
 
@@ -26,12 +28,18 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, '../apps/'))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Storage
+GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
+    json.loads(env('GCLOUD_CREDENTIALS'))
+)
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'scarlet-snake-storage'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8-fdv6u7a2^1odl3r2r(54=arbh6#vfcv)8gsdpmsz68yc)4kk'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

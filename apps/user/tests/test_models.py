@@ -33,5 +33,5 @@ class TestModel(APITestCase):
             User.objects.create_superuser('testsuperuser','test@email.test','testpassword123', is_superuser=False)
 
     def test_user_instance_to_str(self):
-        user = user = User.objects.create_user('testuser', 'test@email.test','testpassword123')
+        user = User.objects.create_user('testuser', 'test@email.test','testpassword123')
         self.assertEqual(str(user), 'testuser')
