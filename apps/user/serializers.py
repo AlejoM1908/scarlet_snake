@@ -16,7 +16,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'role', 'token')
+        fields = ('id', 'username', 'email', 'password', 'role', 'token')
         read_only_fields = ['token']
 
     def create(self, validated_data):
