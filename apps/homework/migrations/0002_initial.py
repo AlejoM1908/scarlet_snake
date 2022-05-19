@@ -10,25 +10,31 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('course', '0002_course_us_id'),
+        ("course", "0002_course_us_id"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('homework', '0001_initial'),
+        ("homework", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='submition',
-            name='us_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="submition",
+            name="us_id",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AddField(
-            model_name='homework',
-            name='cs_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='course.course'),
+            model_name="homework",
+            name="cs_id",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="course.course"
+            ),
         ),
         migrations.AddField(
-            model_name='homework',
-            name='us_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="homework",
+            name="us_id",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

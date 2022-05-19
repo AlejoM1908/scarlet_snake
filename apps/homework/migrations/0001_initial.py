@@ -8,33 +8,54 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Homework',
+            name="Homework",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=50)),
-                ('description', models.CharField(max_length=200)),
-                ('limit_date', models.DateTimeField(blank=True, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("name", models.CharField(max_length=50)),
+                ("description", models.CharField(max_length=200)),
+                ("limit_date", models.DateTimeField(blank=True, null=True)),
             ],
             options={
-                'ordering': ('-created_at',),
-                'abstract': False,
+                "ordering": ("-created_at",),
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Submition',
+            name="Submition",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('score', models.IntegerField(default=0)),
-                ('data', models.CharField(max_length=200)),
-                ('hw_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='homework.homework')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("score", models.IntegerField(default=0)),
+                ("data", models.CharField(max_length=200)),
+                (
+                    "hw_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="homework.homework",
+                    ),
+                ),
             ],
         ),
     ]
