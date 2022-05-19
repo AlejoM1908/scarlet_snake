@@ -4,7 +4,9 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN pip install --upgrade pip 
+RUN apk add mariadb-connector-c-dev
+RUN apk add build-base
+RUN pip3 install --upgrade pip 
 COPY ./requirements.txt /usr/src/app
 RUN pip install -r requirements.txt
 

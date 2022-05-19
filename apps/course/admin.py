@@ -1,3 +1,5 @@
 from django.contrib import admin
+from course.models import Course
 
-# Register your models here.
+# Use the Course model in the django admin panel
+admin.site.register(Course)
