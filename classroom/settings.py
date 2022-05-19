@@ -44,7 +44,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [env("DJANGO_ALLOWED_HOSTS"), "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["34.72.73.56"]
 
 AUTH_USER_MODEL = "user.User"
 
