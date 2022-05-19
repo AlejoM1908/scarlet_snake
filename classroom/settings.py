@@ -42,7 +42,7 @@ GS_BUCKET_NAME = "scarlet-snake-storage"
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [env("DJANGO_ALLOWED_HOSTS"), "127.0.0.1", "localhost"]
 
@@ -135,9 +135,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Options for Django Rest Framework
 
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": [
+    "DEFAULT_AUTHENTICATION_CLASSES": (
         "user.jwt.JWTAuthentication",
-    ]
+    ),
 }
 
 
